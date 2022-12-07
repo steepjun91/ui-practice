@@ -1,0 +1,123 @@
+body {
+  background-color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.border-box {
+  position: relative;
+  box-sizing: border-box;
+  width: 350px;
+  height: 350px;
+  padding: 50px;
+  color: #fff;
+  text-align: center;
+}
+.border-box .border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  border-radius: 23% 33% 55% 43%;
+  width: 350px;
+  height: 350px;
+  color: #fff;
+  animation: border-rotate 3s linear infinite reverse;
+}
+.border-box::before,
+.border-box::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: "";
+  display: block;
+  width: 350px;
+  height: 350px;
+  border: 1px solid #fff;
+  animation: border-rotate 3s linear infinite;
+}
+.border-box::before {
+  border-radius: 45% 30% 45% 55%;
+}
+.border-box::after {
+  border-radius: 65% 50% 40% 35%;
+}
+
+.border-box:nth-child(1):hover .border,
+.border-box:nth-child(1):hover::before,
+.border-box:nth-child(1):hover::after {
+  background-color: crimson;
+  opacity: 0.5;
+  border: none;
+  box-shadow: 0 0 5px crimson;
+}
+.border-box:nth-child(1):hover::before {
+  opacity: 0.5;
+  box-shadow: 0 0 10px crimson;
+}
+.border-box:nth-child(1):hover::after {
+  opacity: 0.5;
+  box-shadow: 0 0 20px crimson;
+}
+.border-box:nth-child(2):hover .border,
+.border-box:nth-child(2):hover::before,
+.border-box:nth-child(2):hover::after {
+  background-color: dodgerblue;
+  border: none;
+  opacity: 0.5;
+}
+.border-box:nth-child(2):hover::before {
+  opacity: 0.5;
+  box-shadow: 0 0 10px dodgerblue;
+}
+.border-box:nth-child(2):hover::after {
+  opacity: 0.5;
+  box-shadow: 0 0 20px dodgerblue;
+}
+.border-box:nth-child(3):hover .border,
+.border-box:nth-child(3):hover::before,
+.border-box:nth-child(3):hover::after {
+  background-color: green;
+  border: none;
+  opacity: 0.5;
+}
+.border-box:nth-child(3):hover::before {
+  opacity: 0.5;
+  box-shadow: 0 0 10px green;
+}
+.border-box:nth-child(3):hover::after {
+  opacity: 0.5;
+  box-shadow: 0 0 20px green;
+}
+
+.border-box button {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 40% 55% 60% 70%;
+  padding: 20px;
+}
+
+@keyframes border-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

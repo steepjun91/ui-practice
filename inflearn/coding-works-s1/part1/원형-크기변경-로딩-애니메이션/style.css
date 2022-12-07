@@ -1,0 +1,52 @@
+body {
+  height: 100vh;
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.round-loding-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.round-loding-box .circle {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation: round-loading 1s infinite;
+}
+.round-loding-box .circle + .circle {
+  margin-left: 20px;
+}
+.round-loding-box .circle:nth-child(1) {
+  background-color: crimson;
+  animation-delay: .2s;
+}
+.round-loding-box .circle:nth-child(2) {
+  background-color: skyblue;
+  animation-delay: .4s;
+}
+.round-loding-box .circle:nth-child(3) {
+  background-color: blue;
+  animation-delay: .6s;
+}
+
+@keyframes round-loading {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
